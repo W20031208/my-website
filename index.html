@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>表白网页</title>
+    <style>
+        body {
+            background-color: #ffd6d6;
+            font-family: "微软雅黑", sans-serif;
+            text-align: center;
+            padding-top: 50px;
+        }
+        img {
+            width: 150px;
+            margin-bottom: 20px;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 40px;
+        }
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            font-size: 20px;
+            margin: 20px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .yes {
+            background-color: #ff5c8d;
+            color: white;
+        }
+        .no {
+            background-color: #6ca0dc;
+            color: white;
+        }
+        #message {
+            margin-top: 50px;
+            font-size: 24px;
+            color: #ff3b6f;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <!-- 小猫图片 -->
+    <img src="./cat.png" alt="小猫">
+
+    <h1>小猫我爱你，可以做我女朋友吗？</h1>
+    <button class="btn yes" onclick="sayYes()">可以</button>
+    <button class="btn no" onclick="sayNo()">不可以</button>
+
+    <div id="message"></div>
+
+    <script>
+        let noScale = 1;   // 不可以按钮缩放比例
+        let yesScale = 1;  // 可以按钮缩放比例
+
+        function sayNo() {
+            const noBtn = document.querySelector(".no");
+            const yesBtn = document.querySelector(".yes");
+
+            noScale -= 0.1; // 每次缩小 10%
+            yesScale += 0.1; // 每次放大 10%
+
+            if (noScale < 0.1) noScale = 0.1; // 最小限制，避免消失
+            noBtn.style.transform = `scale(${noScale})`;
+            yesBtn.style.transform = `scale(${yesScale})`;
+        }
+
+        function sayYes() {
+            document.getElementById("message").innerHTML = '让你成为世界上最幸福的小猫！ <span class="heart">❤</span>';
+        }
+    </script>
+</body>
+</html>
