@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>表白网页</title>
+    <style>
+        body {
+            background-color: #ffd6d6;
+            font-family: "微软雅黑", sans-serif;
+            text-align: center;
+            padding-top: 50px;
+        }
+        img {
+            width: 150px;
+            margin-bottom: 20px;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 40px;
+        }
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            font-size: 20px;
+            margin: 20px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .yes {
+            background-color: #ff5c8d;
+            color: white;
+        }
+        .no {
+            background-color: #6ca0dc;
+            color: white;
+        }
+        #message {
+            margin-top: 50px;
+            font-size: 24px;
+            color: #ff3b6f;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <!-- 小猫图片 -->
+    <img src="./cat.png" alt="小猫">
+
+    <h1>小猫我爱你，可以做我女朋友吗？</h1>
+    <button class="btn yes" onclick="sayYes()">可以</button>
+    <button class="btn no" onclick="sayNo()">不可以</button>
+
+    <div id="message"></div>
+
+    <script>
+        let isSmall = false; // 控制“不可以”按钮的大小
+        function sayNo() {
+            const noBtn = document.querySelector(".no");
+            if (!isSmall) {
+                noBtn.style.transform = "scale(0.7)";
+                isSmall = true;
+            } else {
+                noBtn.style.transform = "scale(1.2)";
+                isSmall = false;
+            }
+        }
+
+        function sayYes() {
+            document.getElementById("message").innerText = "让我成为世界上最幸福的小猫！";
+        }
+    </script>
+</body>
+</html>
